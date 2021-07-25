@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.Domain", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.Database", "ControleEstoque.Database\ControleEstoque.Database.csproj", "{DEC238C8-7A57-4607-8EFA-414A6C94DC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.Application", "ControleEstoque.Aplicacao\ControleEstoque.Application.csproj", "{483259A5-79D1-40D6-B0BC-E05525FB91CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.Application", "ControleEstoque.Application\ControleEstoque.Application.csproj", "{483259A5-79D1-40D6-B0BC-E05525FB91CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.IoC", "ControleEstoque.InjecaoDeDependencias\ControleEstoque.IoC.csproj", "{39D3A0F7-0567-4775-9223-1224A787016C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.IoC", "ControleEstoque.IoC\ControleEstoque.IoC.csproj", "{39D3A0F7-0567-4775-9223-1224A787016C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
