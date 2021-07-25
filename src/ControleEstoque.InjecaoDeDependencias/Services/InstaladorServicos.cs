@@ -1,8 +1,8 @@
-﻿using ControleEstoque.Aplicacao.Services;
+﻿using ControleEstoque.Application.Services;
 using ControleEstoque.Domain.Services;
 using SimpleInjector;
 
-namespace ControleEstoque.InjecaoDeDependencias.Services
+namespace ControleEstoque.IoC.Services
 {
     public class InstaladorServicos
     {

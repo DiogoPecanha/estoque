@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ControleEstoque.Aplicacao.Services
+namespace ControleEstoque.Application.Services
 {
     public class CategoriaAplicacao : ICategoriaService
     {

@@ -3,7 +3,7 @@ using ControleEstoque.Database.Repository;
 using ControleEstoque.Domain.Repositories;
 using SimpleInjector;
 
-namespace ControleEstoque.InjecaoDeDependencias.Repositories
+namespace ControleEstoque.IoC.Repositories
 {
     public class InstaladorRepositorios
     {

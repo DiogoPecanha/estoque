@@ -206,9 +206,9 @@
       <Project>{8309b297-778f-4eec-897d-864facb99554}</Project>
       <Name>ControleEstoque.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ControleEstoque.InjecaoDeDependencias\ControleEstoque.InjecaoDeDependencias.csproj">
+    <ProjectReference Include="..\ControleEstoque.InjecaoDeDependencias\ControleEstoque.IoC.csproj">
       <Project>{39d3a0f7-0567-4775-9223-1224a787016c}</Project>
-      <Name>ControleEstoque.InjecaoDeDependencias</Name>
+      <Name>ControleEstoque.IoC</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

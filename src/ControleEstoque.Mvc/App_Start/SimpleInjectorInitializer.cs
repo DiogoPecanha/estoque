@@ -1,5 +1,5 @@
-﻿using ControleEstoque.InjecaoDeDependencias.Repositories;
-using ControleEstoque.InjecaoDeDependencias.Services;
+﻿using ControleEstoque.IoC.Repositories;
+using ControleEstoque.IoC.Services;
 using ControleEstoque.Mvc.App_Start;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
