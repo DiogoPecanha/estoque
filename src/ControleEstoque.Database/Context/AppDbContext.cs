@@ -1,11 +1,12 @@
 ﻿using ControleEstoque.Database.EntityConfig;
 using ControleEstoque.Domain.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ControleEstoque.Database.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext, IDisposable
     {
         public AppDbContext() : base("EstoqueDatabase")
         {

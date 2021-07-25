@@ -1,8 +1,6 @@
 ﻿using ControleEstoque.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ControleEstoque.Domain.Repositories
@@ -21,7 +19,6 @@ namespace ControleEstoque.Domain.Repositories
         /// </summary>
         /// <returns>lista de categorias</returns>
         Task<IEnumerable<Categoria>> ObterTodos();
-
 
         /// <summary>
         /// Obtem uma lista de categorias que possuem o termo pesquisado
