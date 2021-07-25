@@ -53,7 +53,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ControleEstoque.Aplicacao\ControleEstoque.Application.csproj">
+    <ProjectReference Include="..\ControleEstoque.Application\ControleEstoque.Application.csproj">
       <Project>{483259A5-79D1-40D6-B0BC-E05525FB91CB}</Project>
       <Name>ControleEstoque.Application</Name>
     </ProjectReference>
