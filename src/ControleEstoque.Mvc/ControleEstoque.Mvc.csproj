@@ -177,6 +177,16 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControleEstoque.Database\ControleEstoque.Database.csproj">
+      <Project>{dec238c8-7a57-4607-8efa-414a6c94dc74}</Project>
+      <Name>ControleEstoque.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleEstoque.Domain\ControleEstoque.Domain.csproj">
+      <Project>{8309b297-778f-4eec-897d-864facb99554}</Project>
+      <Name>ControleEstoque.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

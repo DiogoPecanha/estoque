@@ -57,14 +57,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\ProdutoEntity.cs" />
-    <Compile Include="Entity\UnidadeMedidaEntity.cs" />
-    <Compile Include="EstoqueContext.cs" />
+    <Compile Include="Context\AppDbContext.cs" />
+    <Compile Include="EntityConfig\CategoriaEntityConfig.cs" />
+    <Compile Include="EntityConfig\ProdutoEntityConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoriaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControleEstoque.Domain\ControleEstoque.Domain.csproj">
+      <Project>{8309b297-778f-4eec-897d-864facb99554}</Project>
+      <Name>ControleEstoque.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
