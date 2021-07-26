@@ -1,6 +1,8 @@
 ﻿using ControleEstoque.Domain.Services;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Linq;
+using ControleEstoque.Mvc.ViewModels;
 
 namespace ControleEstoque.Mvc.Controllers
 {
@@ -18,7 +20,14 @@ namespace ControleEstoque.Mvc.Controllers
         public async Task<ActionResult> Index()
         {
             var lista = await this.categoriaService.ObterTodos();
-            return View();
+
+            var listaMapeada = lista.Select(c => new CategoriaViewModel()
+            {
+                Codigo = c.Codigo,
+                Nome = c.Nome
+            });
+
+            return View(listaMapeada);
         }
     }
 }

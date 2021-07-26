@@ -71,12 +71,12 @@ namespace ControleEstoque.Mvc.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Registrar(RegisterViewModel model)
+        public async Task<ActionResult> Registrar(RegistrarViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await _userManager.CreateAsync(user, model.Password);
+                var result = await _userManager.CreateAsync(user, model.Senha);
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
