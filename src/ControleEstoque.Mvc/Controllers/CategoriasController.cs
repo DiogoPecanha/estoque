@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace ControleEstoque.Mvc.Controllers
 {
+    [Authorize]
     public class CategoriasController : Controller
     {
         private readonly ICategoriaService categoriaService;

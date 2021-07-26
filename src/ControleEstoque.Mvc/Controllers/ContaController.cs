@@ -1,20 +1,18 @@
 ﻿using ControleEstoque.IoC.Identity.Config;
-using ControleEstoque.IoC.Identity.Model;
-using ControleEstoque.Mvc.ViewModels;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using ControleEstoque.Mvc.ViewModels;
+using ControleEstoque.IoC.Identity.Model;
 using System.Web;
+using Microsoft.Owin.Security;
+using Microsoft.AspNet.Identity;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace ControleEstoque.Mvc.Controllers
 {
     public class ContaController : Controller
     {
-        private ApplicationSignInManager _signInManager;
+        private ApplicationSignInManager _signInManager;        
         private ApplicationUserManager _userManager;
 
         public ContaController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -99,6 +97,14 @@ namespace ControleEstoque.Mvc.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Sair()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
@@ -115,6 +121,8 @@ namespace ControleEstoque.Mvc.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
         protected override void Dispose(bool disposing)
         {
