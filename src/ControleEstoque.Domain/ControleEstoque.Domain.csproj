@@ -45,8 +45,10 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\UnidadeMedida.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ICategoriaRepository.cs" />
+    <Compile Include="Repositories\IUsuarioRepository.cs" />
     <Compile Include="Services\ICategoriaService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

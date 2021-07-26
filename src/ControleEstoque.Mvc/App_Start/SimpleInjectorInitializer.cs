@@ -30,6 +30,7 @@ namespace ControleEstoque.Mvc.App_Start
         private static void InitializeContainer(Container container)
         {
             InstaladorRepositorios.RegisterServices(container);
+            InstaladorIdentity.RegisterServices(container);
             InstaladorServicos.RegisterServices(container);
         }
     }
