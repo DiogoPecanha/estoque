@@ -12,6 +12,7 @@ namespace ControleEstoque.IoC.Repositories
             container.Register<AppDbContext>(Lifestyle.Scoped);
 
             container.Register<ICategoriaRepository, CategoriaRepository>(Lifestyle.Scoped);
+            container.Register<IProdutoRepository, ProdutoRepository>(Lifestyle.Scoped);
         }
     }
 }

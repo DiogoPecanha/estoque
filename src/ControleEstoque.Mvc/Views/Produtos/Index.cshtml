@@ -1,0 +1,112 @@
+﻿@model PagedList.IPagedList<ControleEstoque.Mvc.ViewModels.ProdutoViewModel>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<h2>Produtos</h2>
+
+
+@using (Html.BeginForm("Index", "Produtos", FormMethod.Get))
+{
+    <p>
+        Pesquisar por nome: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" class="btn btn-default" value="Pesquisa" />
+    </p>
+}
+
+<p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePanel" aria-expanded="false" aria-controls="collapsePanel">
+        Cadastrar Novo Produto
+    </button>
+</p>
+<div class="panel panel-default collapse" id="collapsePanel">
+    <div class="panel-body">
+        @using (Html.BeginForm("Salvar", "Produtos", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            @Html.Hidden("Codigo")
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Nome">Nome Produto</label>
+                    <input type="text" class="form-control" id="Nome" placeholder="Nome do Produto" name="Nome">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Descricao">Descrição</label>
+                    <input type="text" class="form-control" id="Descricao" placeholder="Descrição do produto" name="Descricao">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="UnidadeMedida">Unidade de Medida</label>
+                    @Html.DropDownList("UnidadeMedida", new SelectList(ViewBag.UnidadesMedida), new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="Categoria">Categoria</label>
+                    @Html.DropDownList("Categoria", new SelectList(ViewBag.Categorias, "Codigo", "Nome"), new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="Quantidade">Quantidade</label>
+                    <input type="number" class="form-control" id="Quantidade" name="Quantidade">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar</button>
+        }
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Código", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Nome", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Unidade Medida", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Quantidade", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnidadeMedida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Codigo }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Codigo }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Codigo })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

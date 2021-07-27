@@ -1,4 +1,5 @@
-﻿using ControleEstoque.Application.Services;
+﻿using ControleEstoque.Aplicacao;
+using ControleEstoque.Application.Services;
 using ControleEstoque.Domain.Services;
 using SimpleInjector;
 
@@ -9,6 +10,7 @@ namespace ControleEstoque.IoC.Services
         public static void RegisterServices(Container container)
         {
             container.Register<ICategoriaService, CategoriaAplicacao>();
+            container.Register<IProdutoService, ProdutoAplicacao>();
         }
     }
 }
