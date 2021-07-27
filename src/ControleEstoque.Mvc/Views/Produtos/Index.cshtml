@@ -8,7 +8,6 @@
 
 <h2>Produtos</h2>
 
-
 @using (Html.BeginForm("Index", "Produtos", FormMethod.Get))
 {
     <p>
@@ -16,7 +15,6 @@
         <input type="submit" class="btn btn-default" value="Pesquisa" />
     </p>
 }
-
 <p>
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePanel" aria-expanded="false" aria-controls="collapsePanel">
         Cadastrar Novo Produto
@@ -28,18 +26,21 @@
         {
             @Html.AntiForgeryToken()
             <hr />
-            @Html.ValidationSummary("", new { @class = "text-danger" })
-            @Html.Hidden("Codigo")
+            @Html.ValidationSummary("", new { @class = "text-danger" })            
             <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Nome">Código</label>
+                    <input type="text" class="form-control" id="Codigo" placeholder="Código do Produto" name="Codigo">
+                </div>
                 <div class="form-group col-md-6">
                     <label for="Nome">Nome Produto</label>
                     <input type="text" class="form-control" id="Nome" placeholder="Nome do Produto" name="Nome">
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="Descricao">Descrição</label>
-                    <input type="text" class="form-control" id="Descricao" placeholder="Descrição do produto" name="Descricao">
-                </div>
-            </div>
+            </div>                            
+            <div class="form-group">
+                <label for="Descricao">Descrição</label>
+                <input type="text" class="form-control" id="Descricao" placeholder="Descrição do produto" name="Descricao">
+            </div>            
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="UnidadeMedida">Unidade de Medida</label>

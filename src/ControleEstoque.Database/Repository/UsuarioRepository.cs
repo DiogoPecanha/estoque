@@ -12,9 +12,9 @@ namespace ControleEstoque.Database.Repository
     {
         private readonly AppDbContext db;
 
-        public UsuarioRepository()
+        public UsuarioRepository(AppDbContext dbContext)
         {
-            db = new AppDbContext();
+            db = dbContext;
         }
 
         public void Dispose()

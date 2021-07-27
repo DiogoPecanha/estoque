@@ -73,9 +73,9 @@ namespace ControleEstoque.Mvc.Controllers
                 };
 
                 await produtoService.Criar(produto);
-                return View("Index");
+                return RedirectToAction("Index");
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         private void AddErrors(string error)

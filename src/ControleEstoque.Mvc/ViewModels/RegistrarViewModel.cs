@@ -21,7 +21,7 @@ namespace ControleEstoque.Mvc.ViewModels
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar Senha")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Senha", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmarSenha { get; set; }
     }
 }
