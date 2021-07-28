@@ -1,4 +1,7 @@
-﻿namespace ControleEstoque.Mvc.ViewModels
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace ControleEstoque.Mvc.ViewModels
 {
     public class ProdutoViewModel
     {
@@ -24,7 +27,7 @@
 
         /// <summary>
         /// Unidade básica de medida do produto
-        /// </summary>        
+        /// </summary>                
         public UnidadeMedidaDto UnidadeMedida { get; set; }
 
         /// <summary>

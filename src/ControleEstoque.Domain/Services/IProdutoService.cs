@@ -14,11 +14,11 @@ namespace ControleEstoque.Domain.Services
         Task AtualizarEstoque(long codigoProduto, decimal quantidade);
 
         /// <summary>
-        /// Cria um novo produto
+        /// Cria um novo produto ou atualiza um existente
         /// </summary>
         /// <param name="produto">Produto a ser criado</param>
         /// <returns>Produto criado</returns>
-        Task<Produto> Criar(Produto produto);
+        Task<Produto> Salvar(Produto produto);
 
         /// <summary>
         /// Obtêm os produtos cadastrados

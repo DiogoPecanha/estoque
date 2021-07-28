@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ControleEstoque.Aplicacao
+namespace ControleEstoque.Aplicacao.Services
 {
     public class ProdutoAplicacao : IProdutoService
     {
@@ -31,9 +31,17 @@ namespace ControleEstoque.Aplicacao
             await produtoRepository.Salvar(produto);
         }
 
-        public async Task<Produto> Criar(Produto produto)
+        public async Task<Produto> Salvar(Produto produto)
         {
-            return await produtoRepository.Criar(produto);
+            var produtoExistente = await ObterPorCodigo(produto.Codigo);
+            if (produtoExistente == null)
+            {
+                return await produtoRepository.Criar(produto);
+            } 
+            else
+            {
+                return await produtoRepository.Salvar(produto);
+            }
         }
 
         public async Task<IEnumerable<Produto>> ObterDadosPaginados(string ordem, string termo)

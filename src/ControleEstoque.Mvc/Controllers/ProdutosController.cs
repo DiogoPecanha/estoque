@@ -27,7 +27,10 @@ namespace ControleEstoque.Mvc.Controllers
         {
             var categorias = await categoriaService.ObterTodos();
 
-            ViewBag.UnidadesMedida = Enum.GetNames(typeof(UnidadeMedidaDto));
+            ViewBag.UnidadesMedida = Enum.GetValues(typeof(UnidadeMedidaDto)).Cast<UnidadeMedidaDto>()
+                  .Select(e => new { Codigo = Convert.ToInt32(e), Nome = e.ToString()});
+
+            //ViewBag.UnidadesMedida = Enum.GetNames(typeof(UnidadeMedidaDto));
             ViewBag.Categorias = categorias.Select(x => new { Codigo = x.Codigo, Nome = x.Nome }); 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "codigo" : "";            
@@ -49,6 +52,7 @@ namespace ControleEstoque.Mvc.Controllers
                 Codigo = p.Codigo,
                 Categoria = p.Categoria.Nome,
                 Descricao = p.Descricao,
+                UnidadeMedida = (UnidadeMedidaDto)Enum.Parse(typeof(UnidadeMedidaDto), p.UnidadeMedida.ToString(), true),                
                 Nome = p.Nome,
                 Quantidade = p.Quantidade
             });
@@ -71,12 +75,31 @@ namespace ControleEstoque.Mvc.Controllers
                     Nome = model.Nome,
                     Quantidade = model.Quantidade
                 };
-
-                await produtoService.Criar(produto);
+                
+                await produtoService.Salvar(produto);
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
+
+        public async Task<JsonResult> ObterProdutoPorId(long codigo)
+        {
+            var produto = await produtoService.ObterPorCodigo(codigo);
+            var retorno = Json(new
+            {
+                sucesso = true,
+                produto = new ProdutoViewModel()
+                {
+                    Codigo = produto.Codigo,
+                    Categoria = produto.Categoria.Codigo.ToString(),
+                    Descricao = produto.Descricao,
+                    UnidadeMedida = (UnidadeMedidaDto)Enum.Parse(typeof(UnidadeMedidaDto), produto.UnidadeMedida.ToString(), true),
+                    Nome = produto.Nome,
+                    Quantidade = produto.Quantidade
+                }
+            }, JsonRequestBehavior.AllowGet);
+            return retorno;
+        } 
 
         private void AddErrors(string error)
         {

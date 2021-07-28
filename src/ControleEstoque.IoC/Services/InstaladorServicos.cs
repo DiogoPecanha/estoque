@@ -1,4 +1,4 @@
-﻿using ControleEstoque.Aplicacao;
+﻿using ControleEstoque.Aplicacao.Services;
 using ControleEstoque.Application.Services;
 using ControleEstoque.Domain.Services;
 using SimpleInjector;
