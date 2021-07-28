@@ -1,6 +1,6 @@
 # Project sample .Net Framework MVC 5
 
-* clean architecture
+* Clean architecture concepts 
 * SimpleInjector as IoC
-* Identity
+* AspNet Identity
 * Entity Framework
